@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+.grid-container {
+  width: 600px;
+  /* 부모는 그리드 컨테이너입니다 */
+  /* 자식은 그리드 아이템이에요 */
+  display: grid;
+  /* 그리드에 행(줄)을 각각 70, 200, 70 크기로 3개 만들어요! */
+  grid-template-rows: 70px 200px 70px;
+  /* 그리드에 열(칸)을 각각 동일한 비율(fr)로 3개 만들어요! */
+  grid-template-columns: repeat(3, 1fr); /* fractional unit 사용가능한 공간에 대한 비율 */
+  /* 선 두께(사이 간격)를 10 크기로 만들어요! */
+  grid-gap: 10px; /* grid-row-gap, grid-column-gap */
+}
+.grid-item {
+  /* 글씨는 흰색이고요, */
+  color: #FFF;
+  /* 배경색은 파란색이에요. */
+  background: #0169FF;
+  /* 그리드 아이템들은 이제부터 플렉스 박스에요. */
+  display: flex;
+  /* 플렉스 박스 안에서 콘텐츠를 수평 가운데로 정렬하고, */
+  justify-content: center;
+  /* 수직 가운데로 정렬해요. */
+  align-items: center;
+}
+.grid-item.header {
+  /* 경계선 번호 처음(1)부터 끝(-1)까지 영역을 차지해요 */
+  grid-column: 1 / -1;
+  /* grid-column-start:1; grid-column-end:4; */
+  grid-row-start: 1; grid-row-end:2;
+}
+.grid-item.nav{
+    grid-column-start:1; grid-column-end:2;
+    grid-row-start:2; grid-row-end:3;
+}
+.grid-item.main{
+    grid-column-start:2; grid-column-end:3;
+    grid-row-start:2; grid-row-end:3;
+}
+.grid-item.aside{
+    grid-column-start:3; grid-column-end:4;
+    grid-row-start:2; grid-row-end:3;
+}
+.grid-item.footer {
+  /* 선 번호 처음(1)부터 끝(-1)까지 영역을 차지해요 */
+  grid-column: 1 / -1;
+  grid-row-start:3; grid-row-end:4;
+}
+</style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item header">Header</div>
+        <div class="grid-item nav">Nav</div>
+        <div class="grid-item main">Main Content</div>
+        <div class="grid-item aside">aside</div>
+        <div class="grid-item footer">Footer</div>
+    </div>   
+</body>
+</html>
